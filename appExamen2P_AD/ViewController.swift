@@ -7,6 +7,10 @@
 
 import UIKit
 
+var Player1Score = 2
+var Player2Score = 2
+
+
 class ViewController: UIViewController {
 
     
