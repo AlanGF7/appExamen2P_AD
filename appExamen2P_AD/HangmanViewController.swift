@@ -45,7 +45,7 @@ class HangmanViewController: UIViewController {
     //Palabras para jugador 1
     let Words5P1 = ["perro","cinco","canto","cruel"]
     let Words6P1 = ["cuatro","whisky","aretes","bienes"]
-    let Words7P1 = ["agenda","botones","bolivia","carrito"]
+    let Words7P1 = ["agendas","botones","bolivia","carrito"]
     
     //Palabras para jugador 2
     let Words5P2 = ["anana","nubes","latas","afore"]
@@ -68,7 +68,7 @@ class HangmanViewController: UIViewController {
         Try = inputCharacter.text ?? "e"
         
         if Word.contains(Try.lowercased()) {
-            checkWordChar(word: Try)
+            checkWordChar(word: Word, character: Try)
         }
         else
         {
@@ -162,14 +162,96 @@ class HangmanViewController: UIViewController {
         }
     }
     
-    func checkWordChar(word: String){
+    func printCharacter(Length: Int, index: Int, character: String)
+    {
+        switch Length{
+        case 0:
+            switch index {
+                case 0:
+                    A5.text = character
+                case 1:
+                    B5.text = character
+                case 2:
+                    C5.text = character
+                case 3:
+                    D5.text = character
+                case 4:
+                    E5.text = character
+                default:
+                    print("Algo falló en el index...")
+            }
+        case 1:
+            switch index {
+                case 0:
+                    A6.text = character
+                case 1:
+                    B6.text = character
+                case 2:
+                    C6.text = character
+                case 3:
+                    D6.text = character
+                case 4:
+                    E6.text = character
+                case 5:
+                    F6.text = character
+                default:
+                    print("Algo falló en el index...")
+            }
+        case 2:
+            switch index {
+                case 0:
+                    A7.text = character
+                case 1:
+                    B7.text = character
+                case 2:
+                    C7.text = character
+                case 3:
+                    D7.text = character
+                case 4:
+                    E7.text = character
+                case 5:
+                    F7.text = character
+                case 6:
+                    G7.text = character
+                default:
+                    print("Algo falló en el index...")
+            }
+            
+        default:
+            print("Algo falló...")
+        }
+    }
+    
+    func checkWordChar(word: String, character: String){
+        var index = 0
         switch WordsLength {
         case 0:
-            A5.text = word
+            for char in word
+            {
+                if(char.lowercased() == character.lowercased())
+                {
+                    printCharacter(Length: WordsLength, index: index, character: character)
+                }
+                index += 1
+            }
         case 1:
-            A6.text = word
+            for char in word
+            {
+                if(char.lowercased() == character.lowercased())
+                {
+                    printCharacter(Length: WordsLength, index: index, character: character)
+                }
+                index += 1
+            }
         case 2:
-            A7.text = word
+            for char in word
+            {
+                if(char.lowercased() == character.lowercased())
+                {
+                    printCharacter(Length: WordsLength, index: index, character: character)
+                }
+                index += 1
+            }
         default:
             print("Algo falló...")
         }
