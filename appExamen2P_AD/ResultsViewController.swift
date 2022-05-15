@@ -19,8 +19,6 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var TicTacToePlayer2: UILabel!
     @IBOutlet weak var WinnerLabel: UILabel!
     
-    var prueba = 5
-    
     //MARK: OnInit()
     override func viewDidLoad() {
         super.viewDidLoad()
