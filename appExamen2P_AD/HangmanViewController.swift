@@ -243,6 +243,7 @@ class HangmanViewController: UIViewController {
                 if(WordCompleted == 5)
                 {
                     resultAlert(title: "Ganador!", message: "¡Bien hecho!")
+                    hangmanImage.image = UIImage(named:"ganar")
                     WordCompleted = 0
                 }
             }
@@ -258,6 +259,7 @@ class HangmanViewController: UIViewController {
                 if(WordCompleted == 6)
                 {
                     resultAlert(title: "Ganador!", message: "¡Bien hecho!")
+                    hangmanImage.image = UIImage(named:"ganar")
                     WordCompleted = 0
                 }
             }
@@ -273,6 +275,7 @@ class HangmanViewController: UIViewController {
                 if(WordCompleted == 7)
                 {
                     resultAlert(title: "Ganador!", message: "¡Bien hecho!")
+                    hangmanImage.image = UIImage(named:"ganar")
                     WordCompleted = 0
                 }
             }
