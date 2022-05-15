@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		454A4496282205300028A345 /* PreguntasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A4495282205300028A345 /* PreguntasViewController.swift */; };
 		454A4498282205F50028A345 /* TicTacToeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A4497282205F50028A345 /* TicTacToeViewController.swift */; };
+		45B2FEBE2831969500D093F0 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2FEBD2831969500D093F0 /* ResultsViewController.swift */; };
 		D9C1869B281C9889004382F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1869A281C9889004382F4 /* AppDelegate.swift */; };
 		D9C1869D281C9889004382F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1869C281C9889004382F4 /* SceneDelegate.swift */; };
 		D9C1869F281C9889004382F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1869E281C9889004382F4 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		454A4495282205300028A345 /* PreguntasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntasViewController.swift; sourceTree = "<group>"; };
 		454A4497282205F50028A345 /* TicTacToeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeViewController.swift; sourceTree = "<group>"; };
+		45B2FEBD2831969500D093F0 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		D9C18697281C9889004382F4 /* appExamen2P_AD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appExamen2P_AD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C1869A281C9889004382F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9C1869C281C9889004382F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				D9C186CA281C9E0E004382F4 /* HangmanViewController.swift */,
 				454A4495282205300028A345 /* PreguntasViewController.swift */,
 				454A4497282205F50028A345 /* TicTacToeViewController.swift */,
+				45B2FEBD2831969500D093F0 /* ResultsViewController.swift */,
 			);
 			path = appExamen2P_AD;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				454A4496282205300028A345 /* PreguntasViewController.swift in Sources */,
 				D9C1869F281C9889004382F4 /* ViewController.swift in Sources */,
 				D9C1869B281C9889004382F4 /* AppDelegate.swift in Sources */,
+				45B2FEBE2831969500D093F0 /* ResultsViewController.swift in Sources */,
 				454A4498282205F50028A345 /* TicTacToeViewController.swift in Sources */,
 				D9C1869D281C9889004382F4 /* SceneDelegate.swift in Sources */,
 				D9C186CB281C9E0E004382F4 /* HangmanViewController.swift in Sources */,

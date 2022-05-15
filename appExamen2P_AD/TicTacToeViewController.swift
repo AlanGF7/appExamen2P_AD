@@ -63,13 +63,36 @@ class TicTacToeViewController: UIViewController {
         
         if(checkWinner(X)) {
             player1Score += 1
-            clicks = 0
-            resultAlert(title: "Player 1 Wins")
+            if(player1Score == 2) {
+                winnerAlert(title: "¡Jugador 1 Gana!", message: "Has ganado esta ronda de gato, ¡Felicidades!")
+                Player1TTT += 1
+                player1Score = 0
+                player2Score = 0
+                resetBoard()
+            }
+            else {
+                clicks = 0
+                resultAlert(title: "Player 1 Wins")
+            }
+            print("Jugador 1 local: " + String(player1Score) )
+            print("Jugador 1 global: " + String(Player1TTT) )
         }
         if(checkWinner(O)) {
             player2Score += 1
-            clicks = 0
-            resultAlert(title: "Player 2 Wins")
+            if(player2Score == 2) {
+                winnerAlert(title: "¡Jugador 2 Gana!", message: "Has ganado esta ronda de gato, ¡Felicidades!")
+                Player2TTT += 1
+                player2Score = 0
+                player1Score = 0
+                resetBoard()
+            }
+            else
+            {
+                clicks = 0
+                resultAlert(title: "Player 2 Wins")
+            }
+            print("Jugador 2 local:" + String(player2Score) )
+            print("Jugador 2 global:" + String(Player2TTT) )
         }
         
         if(fullBoard())
@@ -132,13 +155,19 @@ class TicTacToeViewController: UIViewController {
         }))
         
         self.present(alert, animated: true)
-            
+    }
+    
+    func winnerAlert(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true)
     }
     
     func resetBoard(){
         for button in board
         {
-            //Checar error
             button.setTitle(nil, for: .normal)
             button.isEnabled = true
         }
@@ -153,19 +182,13 @@ class TicTacToeViewController: UIViewController {
             firstTurn = Turn.O
             turnLabel.text = O
         }
-        
+        clicks = 0
         currentTurn = firstTurn
     }
     
     func fullBoard() -> Bool
     {
-        /*for button in board
-        {
-            if(button.title(for: .normal) == nil){
-                return false
-            }
-        }*/
-        if(clicks == 8)
+        if(clicks == 9)
         {
             clicks = 0
             return true

@@ -62,6 +62,7 @@ class HangmanViewController: UIViewController {
     var WordsChosen = 0
     var Try = ""
     var Oportunities = 0
+    var WordCompleted = 0
     
     // Son 3 vidas
     @IBAction func onClickJugar(_ sender: Any) {
@@ -103,7 +104,6 @@ class HangmanViewController: UIViewController {
         WordsLength = Int.random(in: 0...2)
         WordsChosen = Int.random(in: 0...3)
         checkPlayerWords()
-        
         hangmanImage.image = UIImage(named:"horca")
         
     }
@@ -113,6 +113,7 @@ class HangmanViewController: UIViewController {
         {
             switch WordsLength {
             case 0:
+                showWord5()
                 clearWord5()
                 hideWord6()
                 hideWord7()
@@ -121,12 +122,14 @@ class HangmanViewController: UIViewController {
                 print(WordsChosen)
                 print(Word)
             case 1:
+                showWord6()
                 clearWord6()
                 hideWord5()
                 hideWord7()
                 Word = Words6P1[WordsChosen]
                 print(Word)
             case 2:
+                showWord7()
                 clearWord7()
                 hideWord5()
                 hideWord6()
@@ -139,18 +142,21 @@ class HangmanViewController: UIViewController {
         else{
             switch WordsLength {
             case 0:
+                showWord5()
                 clearWord5()
                 hideWord6()
                 hideWord7()
                 Word = Words5P2[WordsChosen]
                 print(Word)
             case 1:
+                showWord6()
                 clearWord6()
                 hideWord5()
                 hideWord7()
                 Word = Words6P2[WordsChosen]
                 print(Word)
             case 2:
+                showWord7()
                 clearWord7()
                 hideWord5()
                 hideWord6()
@@ -231,8 +237,14 @@ class HangmanViewController: UIViewController {
                 if(char.lowercased() == character.lowercased())
                 {
                     printCharacter(Length: WordsLength, index: index, character: character)
+                    WordCompleted += 1
                 }
                 index += 1
+                if(WordCompleted == 5)
+                {
+                    resultAlert(title: "Ganador!", message: "¡Bien hecho!")
+                    WordCompleted = 0
+                }
             }
         case 1:
             for char in word
@@ -240,8 +252,14 @@ class HangmanViewController: UIViewController {
                 if(char.lowercased() == character.lowercased())
                 {
                     printCharacter(Length: WordsLength, index: index, character: character)
+                    WordCompleted += 1
                 }
                 index += 1
+                if(WordCompleted == 6)
+                {
+                    resultAlert(title: "Ganador!", message: "¡Bien hecho!")
+                    WordCompleted = 0
+                }
             }
         case 2:
             for char in word
@@ -249,13 +267,21 @@ class HangmanViewController: UIViewController {
                 if(char.lowercased() == character.lowercased())
                 {
                     printCharacter(Length: WordsLength, index: index, character: character)
+                    WordCompleted += 1
                 }
                 index += 1
+                if(WordCompleted == 7)
+                {
+                    resultAlert(title: "Ganador!", message: "¡Bien hecho!")
+                    WordCompleted = 0
+                }
             }
         default:
             print("Algo falló...")
         }
     }
+    
+    // Hide the inputs for words
     
     func hideWord5(){
         A5.isHidden = true
@@ -283,6 +309,37 @@ class HangmanViewController: UIViewController {
         F7.isHidden = true
         G7.isHidden = true
     }
+    
+    //Show the inputs for the words
+    func showWord5(){
+        A5.isHidden = false
+        B5.isHidden = false
+        C5.isHidden = false
+        D5.isHidden = false
+        E5.isHidden = false
+    }
+    
+    func showWord6(){
+        A6.isHidden = false
+        B6.isHidden = false
+        C6.isHidden = false
+        D6.isHidden = false
+        E6.isHidden = false
+        F6.isHidden = false
+    }
+    
+    func showWord7(){
+        A7.isHidden = false
+        B7.isHidden = false
+        C7.isHidden = false
+        D7.isHidden = false
+        E7.isHidden = false
+        F7.isHidden = false
+        G7.isHidden = false
+    }
+    
+    
+    //Clear the inputs for the words
     
     func clearWord5(){
         A5.text = nil
@@ -327,11 +384,15 @@ class HangmanViewController: UIViewController {
         {
             firstTurn = Turn.P2
             playerLabel.text = "Jugador 2"
+            Player1HM += 1
         }
         else if(firstTurn == Turn.P2)
         {
             firstTurn = Turn.P1
             playerLabel.text = "Jugador 1"
+            Player2HM += 1
+            WordsLength = Int.random(in: 0...2)
+            WordsChosen = Int.random(in: 0...3)
         }
         
         currentTurn = firstTurn

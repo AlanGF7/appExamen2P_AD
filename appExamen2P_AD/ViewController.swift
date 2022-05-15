@@ -7,8 +7,17 @@
 
 import UIKit
 
-var Player1Score = 2
-var Player2Score = 2
+var Player1HM = 0
+var Player2HM = 0
+
+var Player1TTT = 0
+var Player2TTT = 0
+
+var Player1QA = 0
+var Player2QA = 0
+
+var TotalPlayer1 = 0
+var TotalPlayer2 = 0
 
 
 class ViewController: UIViewController {
@@ -16,7 +25,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func onClickLogin(_ sender: Any) {
