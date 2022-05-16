@@ -43,6 +43,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="dru-kt-1ew"/>
                     <connections>
+                        <outlet property="passInput" destination="ba1-O5-ySR" id="Qiz-O5-khO"/>
+                        <outlet property="userInput" destination="fIe-7K-OkY" id="mmg-AQ-Ho7"/>
                         <segue destination="RVh-HO-oTq" kind="show" identifier="toMainMenu" id="uOy-Ch-uL7"/>
                     </connections>
                 </viewController>
@@ -110,12 +112,20 @@
                                     <action selector="onClickResults:" destination="RVh-HO-oTq" eventType="touchUpInside" id="Ydl-zl-rjR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¡Bienvenido!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABw-5v-82c">
+                                <rect key="frame" x="20" y="706" width="374" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dQP-TU-elh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ndZ-Oo-gFy"/>
                     <connections>
+                        <outlet property="userLabel" destination="ABw-5v-82c" id="gBu-Pg-TWn"/>
                         <segue destination="Mf4-sf-s4g" kind="show" identifier="toHangmanGame" id="p85-Yd-KFc"/>
                         <segue destination="ZYH-0V-pBw" kind="show" identifier="toQuestionGame" id="T5n-or-lVL"/>
                         <segue destination="Wo2-hs-COU" kind="show" identifier="toTicTacToeGame" id="4Kx-ph-apz"/>

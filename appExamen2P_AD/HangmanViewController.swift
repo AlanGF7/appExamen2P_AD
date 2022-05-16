@@ -13,7 +13,6 @@ class HangmanViewController: UIViewController {
     @IBOutlet weak var hangmanImage: UIImageView!
     @IBOutlet weak var playerLabel: UILabel!
     
-    
     @IBOutlet weak var A5: UILabel!
     @IBOutlet weak var B5: UILabel!
     @IBOutlet weak var C5: UILabel!

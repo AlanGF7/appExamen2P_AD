@@ -19,16 +19,24 @@ var Player2QA = 0
 var TotalPlayer1 = 0
 var TotalPlayer2 = 0
 
+var Usuarios = [Model]()
+
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var userInput: UITextField!
+    @IBOutlet weak var passInput: UITextField!
+    @IBOutlet weak var userLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        passInput.isSecureTextEntry = true
     }
+    
+    //MARK: Events
 
     @IBAction func onClickLogin(_ sender: Any) {
-        performSegue(withIdentifier: "toMainMenu", sender: nil)
+        checkData()
     }
     
     @IBAction func onClickGame1(_ sender: Any) {
@@ -47,7 +55,24 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "toTotalController", sender: nil)
     }
     
+    //MARK: Functions
+    func checkData(){
+        if(userInput.text == "" || passInput.text == "") {
+            sendAlert(titulo: "Datos incompletos", mensaje: "Por favor, corrobora todos los datos")
+        }
+        else
+        {
+            let ModeloUsuario = Model(User: userInput.text!, Password: passInput.text!)
+                Usuarios.append(ModeloUsuario)
+            
+            performSegue(withIdentifier: "toMainMenu", sender: nil)
+        }
+    }
     
-    
+    func sendAlert(titulo: String, mensaje: String){
+        let alert = UIAlertController(title: titulo, message: mensaje, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
