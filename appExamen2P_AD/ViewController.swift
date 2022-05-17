@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passInput.isSecureTextEntry = true
+        passInput?.isSecureTextEntry = true
     }
     
     //MARK: Events

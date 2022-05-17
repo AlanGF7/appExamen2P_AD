@@ -34,13 +34,19 @@ class HangmanViewController: UIViewController {
     @IBOutlet weak var F7: UILabel!
     @IBOutlet weak var G7: UILabel!
     
+    @IBOutlet weak var imageLife1: UIImageView!
+    @IBOutlet weak var imageLife2: UIImageView!
+    @IBOutlet weak var imageLife3: UIImageView!
+    
+    @IBOutlet weak var imageLife1P2: UIImageView!
+    @IBOutlet weak var imageLife2P2: UIImageView!
+    @IBOutlet weak var imageLife3P2: UIImageView!
+    
     
     enum Turn{
         case P1
         case P2
     }
-    
-    
     //Palabras para jugador 1
     let Words5P1 = ["perro","cinco","canto","cruel"]
     let Words6P1 = ["cuatro","whisky","aretes","bienes"]
@@ -64,6 +70,9 @@ class HangmanViewController: UIViewController {
     var WordCompleted = 0
     
     // Son 3 vidas
+    var P1Lifes = 3
+    var P2Lifes = 3
+    
     @IBAction func onClickJugar(_ sender: Any) {
         Try = inputCharacter.text ?? "e"
         
@@ -87,9 +96,11 @@ class HangmanViewController: UIViewController {
             case 6:
                 hangmanImage.image = UIImage(named:"6")
             case 7:
+                checkLifes()
                 hangmanImage.image = UIImage(named:"perder")
                 resultAlert(title: "Ops!", message: "Suerte para la próxima " )
                 Oportunities = 0
+                
             default:
                 print("Algo falló...")
             }
@@ -370,18 +381,73 @@ class HangmanViewController: UIViewController {
         G7.text = nil
     }
     
+    func checkLifes(){
+        if(firstTurn == Turn.P1)
+        {
+            P1Lifes -= 1
+            switch P1Lifes
+            {
+            case 0:
+                imageLife3.isHidden = true
+                P1Lifes = 3
+                P2Lifes = 3
+                loserAlert(title: "Pierde jugador 1", message: "Suerte para la próxima :(")
+            case 1:
+                imageLife2.isHidden = true
+            case 2:
+                imageLife1.isHidden = true
+            case 3:
+                imageLife3.isHidden = false
+                imageLife2.isHidden = false
+                imageLife1.isHidden = false
+            default:
+                print("Checa bien las vidas")
+            }
+        }
+        else
+        {
+            P2Lifes -= 1
+            switch P2Lifes
+            {
+            case 0:
+                P2Lifes = 3
+                P1Lifes = 3
+                imageLife3P2.isHidden = true
+                loserAlert(title: "Pierde jugador 2", message: "Suerte para la próxima :(")
+            case 1:
+                imageLife2P2.isHidden = true
+            case 2:
+                imageLife1P2.isHidden = true
+            case 3:
+                imageLife3P2.isHidden = false
+                imageLife2P2.isHidden = false
+                imageLife1P2.isHidden = false
+            default:
+                print("Checa bien las vidas")
+            }
+        }
+    }
+    
     func resultAlert(title: String, message: String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (_) in self.resetGame()
+        alert.addAction(UIAlertAction(title: "Restart", style: .default, handler: { (_) in self.resetGame()
         }))
         
         self.present(alert, animated: true)
-            
     }
     
-    func resetGame(){
+    func loserAlert(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (_) in self.endedGame()
+        }))
         
+        self.present(alert, animated: true)
+    }
+    
+    func resetGame()
+    {
         if(firstTurn == Turn.P1)
         {
             firstTurn = Turn.P2
@@ -400,7 +466,20 @@ class HangmanViewController: UIViewController {
         currentTurn = firstTurn
         checkPlayerWords()
         hangmanImage.image = UIImage(named:"horca")
+    }
+    
+    func endedGame(){
+        imageLife1.isHidden = false
+        imageLife2.isHidden = false
+        imageLife3.isHidden = false
         
+        imageLife1P2.isHidden = false
+        imageLife2P2.isHidden = false
+        imageLife3P2.isHidden = false
+        
+        currentTurn = firstTurn
+        checkPlayerWords()
+        hangmanImage.image = UIImage(named:"horca")
     }
     
 }
