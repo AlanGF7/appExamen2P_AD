@@ -10,6 +10,9 @@
 		454A4496282205300028A345 /* PreguntasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A4495282205300028A345 /* PreguntasViewController.swift */; };
 		454A4498282205F50028A345 /* TicTacToeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454A4497282205F50028A345 /* TicTacToeViewController.swift */; };
 		455867202832B9C500EE1AA8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4558671F2832B9C500EE1AA8 /* Model.swift */; };
+		459911AA2836F114005E42DF /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459911A92836F114005E42DF /* RegistroViewController.swift */; };
+		459911AC2837172F005E42DF /* InicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459911AB2837172F005E42DF /* InicioViewController.swift */; };
+		459911AE28371E1D005E42DF /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459911AD28371E1D005E42DF /* PerfilViewController.swift */; };
 		45B2FEBE2831969500D093F0 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B2FEBD2831969500D093F0 /* ResultsViewController.swift */; };
 		D9C1869B281C9889004382F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1869A281C9889004382F4 /* AppDelegate.swift */; };
 		D9C1869D281C9889004382F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1869C281C9889004382F4 /* SceneDelegate.swift */; };
@@ -44,6 +47,9 @@
 		454A4495282205300028A345 /* PreguntasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntasViewController.swift; sourceTree = "<group>"; };
 		454A4497282205F50028A345 /* TicTacToeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeViewController.swift; sourceTree = "<group>"; };
 		4558671F2832B9C500EE1AA8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		459911A92836F114005E42DF /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
+		459911AB2837172F005E42DF /* InicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioViewController.swift; sourceTree = "<group>"; };
+		459911AD28371E1D005E42DF /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		45B2FEBD2831969500D093F0 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		D9C18697281C9889004382F4 /* appExamen2P_AD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appExamen2P_AD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C1869A281C9889004382F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +127,9 @@
 				454A4497282205F50028A345 /* TicTacToeViewController.swift */,
 				45B2FEBD2831969500D093F0 /* ResultsViewController.swift */,
 				4558671F2832B9C500EE1AA8 /* Model.swift */,
+				459911A92836F114005E42DF /* RegistroViewController.swift */,
+				459911AB2837172F005E42DF /* InicioViewController.swift */,
+				459911AD28371E1D005E42DF /* PerfilViewController.swift */,
 			);
 			path = appExamen2P_AD;
 			sourceTree = "<group>";
@@ -276,10 +285,13 @@
 				454A4496282205300028A345 /* PreguntasViewController.swift in Sources */,
 				D9C1869F281C9889004382F4 /* ViewController.swift in Sources */,
 				D9C1869B281C9889004382F4 /* AppDelegate.swift in Sources */,
+				459911AC2837172F005E42DF /* InicioViewController.swift in Sources */,
 				45B2FEBE2831969500D093F0 /* ResultsViewController.swift in Sources */,
 				454A4498282205F50028A345 /* TicTacToeViewController.swift in Sources */,
+				459911AE28371E1D005E42DF /* PerfilViewController.swift in Sources */,
 				D9C1869D281C9889004382F4 /* SceneDelegate.swift in Sources */,
 				D9C186CB281C9E0E004382F4 /* HangmanViewController.swift in Sources */,
+				459911AA2836F114005E42DF /* RegistroViewController.swift in Sources */,
 				455867202832B9C500EE1AA8 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

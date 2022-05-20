@@ -24,21 +24,21 @@ var Usuarios = [Model]()
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var userInput: UITextField!
-    @IBOutlet weak var passInput: UITextField!
+    
+    
     @IBOutlet weak var userLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passInput?.isSecureTextEntry = true
+        
+        userLabel.text! = "Bienvenido:  "+personita!.Usuario
+       
     }
     
-    //MARK: Events
-
-    @IBAction func onClickLogin(_ sender: Any) {
-        checkData()
-    }
+ 
     
+    
+    //MARK: Menú de Juegos
     @IBAction func onClickGame1(_ sender: Any) {
         performSegue(withIdentifier: "toHangmanGame", sender: nil)
     }
@@ -55,20 +55,18 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "toTotalController", sender: nil)
     }
     
-    //MARK: Functions
-    func checkData(){
-        if(userInput.text == "" || passInput.text == "") {
-            sendAlert(titulo: "Datos incompletos", mensaje: "Por favor, corrobora todos los datos")
-        }
-        else
-        {
-            let ModeloUsuario = Model(User: userInput.text!, Password: passInput.text!)
-                Usuarios.append(ModeloUsuario)
-            
-            performSegue(withIdentifier: "toMainMenu", sender: nil)
-        }
+    
+    
+    
+    //MARK: Cerrar Sesión
+    @IBAction func btnCerrar(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
+    
+    
+    
+    //MARK: Función Alertas
     func sendAlert(titulo: String, mensaje: String){
         let alert = UIAlertController(title: titulo, message: mensaje, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))

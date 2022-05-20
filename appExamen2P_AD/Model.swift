@@ -7,11 +7,18 @@
 import Foundation
 
 class Model{
-    var User: String
-    var Passsword: String
+    var Nombre: String = ""
+    var Apellido: String = ""
+    var Usuario: String = ""
+    var Pass: String = ""
     
-    init(User: String, Password: String){
-        self.User = User
-        self.Passsword = Password
+
+    init(Nombre: String, Apellido: String, Usuario: String, Pass: String){
+        self.Nombre = Nombre
+        self.Apellido = Apellido
+        self.Usuario = Usuario
+        self.Pass = Pass
     }
+    
+
 }
