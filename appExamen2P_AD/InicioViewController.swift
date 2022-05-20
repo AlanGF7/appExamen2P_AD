@@ -8,6 +8,7 @@
 import UIKit
 
 var usuarioLogueado : Model?
+var usuarioLogIndex = Int()
 
 class InicioViewController: UIViewController {
     
@@ -43,11 +44,19 @@ class InicioViewController: UIViewController {
                 for  i in 1...persona.count{
                     if(persona[i - 1].Usuario == userInput.text && persona[i - 1].Pass == passInput.text)
                     {
+                        //Remove
+                        usuarioLogIndex = i-1
                        
+                        //Perfil
                         usuarioLogueado = persona[i-1]
+                        
                         personita!.Usuario = usuarioLogueado!.Usuario
                         personita!.Nombre = usuarioLogueado!.Nombre
                         personita!.Apellido = usuarioLogueado!.Apellido
+                        
+                        print("Usuario")
+                        print(persona[i-1])
+                        print(usuarioLogIndex)
                         
                         performSegue(withIdentifier: "toMainMenu", sender: self)
                         

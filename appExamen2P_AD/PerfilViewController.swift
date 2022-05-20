@@ -29,6 +29,12 @@ class PerfilViewController: UIViewController {
     }
     
     @IBAction func btnCerrar(_ sender: Any) {
+        
+        persona.remove(at:usuarioLogIndex)
+        for  i in 1...persona.count{
+            print( persona[i-1].Usuario)
+        }
+       
         navigationController?.popToRootViewController(animated: true)
     }
     
