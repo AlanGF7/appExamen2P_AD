@@ -18,6 +18,9 @@ var basico = false
 var inter = false
 var difi = false
 
+var cantPreJ1 = 0
+var cantPreJ2 = 0
+
 class PreguntasViewController: UIViewController {
 
     var anterior = 0
@@ -47,44 +50,44 @@ class PreguntasViewController: UIViewController {
     
     
     //Nivel Básico: listado 5 preguntas
-    let quiz = [
-        ["¿El Río Lerma es el más largo de México?", "True"],
-        ["¿Tabasco, Quintana Roo y Yucatán pertenecen a la region Sureste?","True"],
-        ["¿La zona Arqueológica Paquimé està en Jalisco?","False"],
-        ["México se encuentra en Sur América","False"],
-        ["Guadalajara, Jalisco es la ciudad más grande","True"]]
-    
-    //Nivel Intermedio: listado 7 preguntas
-    let quiz2 = [
-        ["Tlaxcala es el estado más pequeño", "True"],
-        ["Pueblo Olmeca crearon las cabezas Colosales","True"],
-        ["El frijol fue el alimento principal de los pueblos mesoamericanos","False"],
-        ["México solía llamarse la Nueva España","True"],
-        ["5 de mayo se celebra el día de la bandera","False"],
-        ["Día de Muertes es una festividad importante de México","True"],
-        ["La T.V. de color fue inventada por un mexicano","True"]]
-    
-    //Nivel Difícil: listado 10 preguntas
-    let quiz3 = [
-        ["¿Tabasco, Quintana Roo y Yucatán pertenecen a la region Sureste?","True"],
-        ["¿La zona Arqueológica Paquimé està en Jalisco?","False"],
-        ["México se encuentra en Sur América","False"],
-        ["Tlaxcala es el estado más pequeño", "True"],
-        ["Pueblo Olmeca crearon las cabezas Colosales","True"],
-        ["El frijol fue el alimento principal de los pueblos mesoamericanos","False"],
-        ["México solía llamarse la Nueva España","True"],
-        ["5 de mayo se celebra el día de la bandera","False"],
-        ["Día de Muertes es una festividad importante de México","True"],
-        ["La T.V. de color fue inventada por un mexicano","True"]]
-    
-    
-    
+    var quiz = [
+        ["¿El Río Lerma es el más largo de México?", "True"],//0
+        ["¿Tabasco, Quintana Roo y Yucatán pertenecen a la region Sureste?","True"],//1
+        ["¿La zona Arqueológica Paquimé està en Jalisco?","False"],//2
+        ["México se encuentra en Sur América","False"],//3
+        ["Guadalajara, Jalisco es la ciudad más grande","True"],//4
+        ["Tlaxcala es el estado más pequeño", "True"],//5
+        ["Pueblo Olmeca crearon las cabezas Colosales","True"],//6
+        ["El frijol fue el alimento principal de los pueblos mesoamericanos","False"],//7
+        ["México solía llamarse la Nueva España","True"],//8
+        ["5 de mayo se celebra el día de la bandera","False"],//9
+        ["Día de Muertes es una festividad importante de México","True"],//10
+        ["La T.V. de color fue inventada por un mexicano","True"],//11
+        ["El nombre México proviene del nahua","True"],//12
+        ["¿México significa -en el ombligo-?","True"],//13
+        ["Pico de Orizaba es el momento más alto de México","True"],//14
+        ["Chapala es el lago más grande de México","True"],//15
+        ["¿El cientifico mexicano Mario Molina aportó estudio sobre la capa de ozono?","True"],//16
+        ["Emiliano Zapata declaró la independencia de México","False"],//17
+        ["México tiene 31 estados","False"],//18
+        ["México es un país megadiverso","True"],//19
+        ["PEMEX significa: Petroleros Mexicanos","True"],//20
+        ["Flor tradicional del Día de muertos es -cempasúchil-","True"],//21
+        ["Símbolos patrios: bandera, escudo y el mariachi","False"],//22
+        ["1970 se celebró la Copa Mundial de Fútbolen México","True"],//23
+        ["México tiene 2 penínsulas","True"],//24
+        ["México solía llamarse -La Nueva España-","True"],//25
+        ["Las tres garantías son: religión, independencia y unión de todos los mexicanos","True"],//26
+        ["Miguel Hidalgo fue un sacerdote que lideró la primera fase de la Independencia de México","True"],//27
+        ["Nombre oficial: Estados unidos Mexicanos","True"],//28
+        ["México se encuentra en Norte América","True"],//29
+        ["México es una República Federal","True"]]//30
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        VidasJ01 = 3
-        VidasJ02 = 3
+        VidasJ01 = 0
+        VidasJ02 = 0
         vidasJ1.text = String(VidasJ01)
         vidasJ2.text = String(VidasJ02)
        
@@ -96,8 +99,8 @@ class PreguntasViewController: UIViewController {
         
         pregunta.text = "¿Cuánto conoces de México?"
         
-        VidasJ01 = 3
-        VidasJ02 = 3
+        VidasJ01 = 0
+        VidasJ02 = 0
         vidasJ1.text = String(VidasJ01)
         vidasJ2.text = String(VidasJ02)
         
@@ -110,6 +113,9 @@ class PreguntasViewController: UIViewController {
         btnBasico.isEnabled = true
         btnInter.isEnabled = true
         btnDificl.isEnabled = true
+        
+        cantPreJ1=0
+        cantPreJ2=0
     }
     
     //MARK: Métodos de lanzar
@@ -121,22 +127,10 @@ class PreguntasViewController: UIViewController {
         return aleatorio
     }
     
-    //Lanzar lista 2
-    func lanzar2()->Int{
-        let aleatorio = Int.random(in: 0...quiz2.count-1)
-        pregunta.text = quiz2[aleatorio][0]
-        
-        return aleatorio
-    }
+   
     
     
-    //Lanzar lista 3
-    func lanzar3()->Int{
-        let aleatorio = Int.random(in: 0...quiz3.count-1)
-        pregunta.text = quiz3[aleatorio][0]
-        
-        return aleatorio
-    }
+
     
     
     //MARK: Botones activación de niveles
@@ -144,6 +138,10 @@ class PreguntasViewController: UIViewController {
     @IBAction func btnBasico(_ sender: Any) {
         
         anterior = lanzar()
+        VidasJ01 = 3
+        VidasJ02 = 3
+        vidasJ1.text = String(VidasJ01)
+        vidasJ2.text = String(VidasJ02)
         
         btnInter.isEnabled = false
         btnDificl.isEnabled = false
@@ -155,8 +153,11 @@ class PreguntasViewController: UIViewController {
     //NIVEL: Intermedio
     @IBAction func btnInter(_ sender: Any) {
         
-        anterior = lanzar2()
-        
+        anterior = lanzar()
+        VidasJ01 = 2
+        VidasJ02 = 2
+        vidasJ1.text = String(VidasJ01)
+        vidasJ2.text = String(VidasJ02)
         btnBasico.isEnabled = false
         btnDificl.isEnabled = false
         
@@ -168,8 +169,11 @@ class PreguntasViewController: UIViewController {
     //NIVEL: Dificil
     @IBAction func btnDificl(_ sender: Any) {
         
-        anterior = lanzar3()
-        
+        anterior = lanzar()
+        VidasJ01 = 1
+        VidasJ02 = 1
+        vidasJ1.text = String(VidasJ01)
+        vidasJ2.text = String(VidasJ02)
         btnBasico.isEnabled = false
         btnInter.isEnabled = false
         
@@ -177,6 +181,7 @@ class PreguntasViewController: UIViewController {
         
     }
     
+    //MARK: JUEGO
     @IBAction func jugar(_ sender: UIButton) {
         
         //if para condicionar el tipo de lista a usar para guardar la respuestaActual
@@ -194,6 +199,53 @@ class PreguntasViewController: UIViewController {
                 if (respuestaUsuario != respuestaActual){
                     VidasJ01 -= 1
                     
+                }else{
+                    cantPreJ1+=1
+                }
+                //quiz.remove(at: anterior)
+                vidasJ1.text = String(VidasJ01)
+                anterior = lanzar()
+                Jugador2lbl.isHighlighted = false
+                turno = 2
+                
+            }else if(turno == 2){
+                
+                Jugador2lbl.isHighlighted = true
+                Jugador2lbl.highlightedTextColor = UIColor.purple
+                let respuestaActual = quiz[anterior][1]
+                let respuestaUsuario = sender.currentTitle ?? ""
+                print(respuestaUsuario)
+                
+                if (respuestaUsuario != respuestaActual){
+                    VidasJ02 -= 1
+                }else{
+                    cantPreJ2=1
+                }
+                
+                
+                //quiz.remove(at: anterior)
+                vidasJ2.text = String(VidasJ02)
+                
+                anterior = lanzar()
+                Jugador1lbl.isHighlighted = false
+                turno = 1
+            }
+            
+        }else if(inter == true){
+            
+            if(turno == 1){
+                
+                Jugador1lbl.isHighlighted = true
+                Jugador1lbl.highlightedTextColor = UIColor.purple
+                let respuestaActual = quiz[anterior][1]
+                let respuestaUsuario = sender.currentTitle ?? ""
+                print(respuestaUsuario)
+                
+                if (respuestaUsuario != respuestaActual){
+                    VidasJ01 -= 1
+                    
+                }else{
+                    cantPreJ1+=1
                 }
                 
                 vidasJ1.text = String(VidasJ01)
@@ -211,48 +263,12 @@ class PreguntasViewController: UIViewController {
                 
                 if (respuestaUsuario != respuestaActual){
                     VidasJ02 -= 1
+                }else{
+                    cantPreJ2+=1
                 }
                 
                 vidasJ2.text = String(VidasJ02)
                 anterior = lanzar()
-                Jugador1lbl.isHighlighted = false
-                turno = 1
-            }
-            
-        }else if(inter == true){
-            
-            if(turno == 1){
-                
-                Jugador1lbl.isHighlighted = true
-                Jugador1lbl.highlightedTextColor = UIColor.purple
-                let respuestaActual = quiz2[anterior][1]
-                let respuestaUsuario = sender.currentTitle ?? ""
-                print(respuestaUsuario)
-                
-                if (respuestaUsuario != respuestaActual){
-                    VidasJ01 -= 1
-                    
-                }
-                
-                vidasJ1.text = String(VidasJ01)
-                anterior = lanzar2()
-                Jugador2lbl.isHighlighted = false
-                turno = 2
-                
-            }else if(turno == 2){
-                
-                Jugador2lbl.isHighlighted = true
-                Jugador2lbl.highlightedTextColor = UIColor.purple
-                let respuestaActual = quiz2[anterior][1]
-                let respuestaUsuario = sender.currentTitle ?? ""
-                print(respuestaUsuario)
-                
-                if (respuestaUsuario != respuestaActual){
-                    VidasJ02 -= 1
-                }
-                
-                vidasJ2.text = String(VidasJ02)
-                anterior = lanzar2()
                 Jugador1lbl.isHighlighted = false
                 turno = 1
             }
@@ -262,17 +278,19 @@ class PreguntasViewController: UIViewController {
                 
                 Jugador1lbl.isHighlighted = true
                 Jugador1lbl.highlightedTextColor = UIColor.purple
-                let respuestaActual = quiz3[anterior][1]
+                let respuestaActual = quiz[anterior][1]
                 let respuestaUsuario = sender.currentTitle ?? ""
                 print(respuestaUsuario)
                 
                 if (respuestaUsuario != respuestaActual){
                     VidasJ01 -= 1
                     
+                }else{
+                    cantPreJ1+=1
                 }
                 
                 vidasJ1.text = String(VidasJ01)
-                anterior = lanzar3()
+                anterior = lanzar()
                 Jugador2lbl.isHighlighted = false
                 turno = 2
                 
@@ -280,16 +298,18 @@ class PreguntasViewController: UIViewController {
                 
                 Jugador2lbl.isHighlighted = true
                 Jugador2lbl.highlightedTextColor = UIColor.purple
-                let respuestaActual = quiz3[anterior][1]
+                let respuestaActual = quiz[anterior][1]
                 let respuestaUsuario = sender.currentTitle ?? ""
                 print(respuestaUsuario)
                 
                 if (respuestaUsuario != respuestaActual){
                     VidasJ02 -= 1
+                }else{
+                    cantPreJ2+=1
                 }
                 
                 vidasJ2.text = String(VidasJ02)
-                anterior = lanzar3()
+                anterior = lanzar()
                 Jugador1lbl.isHighlighted = false
                 turno = 1
             }
@@ -298,26 +318,67 @@ class PreguntasViewController: UIViewController {
         
     
         
-        
+        //MARK: JUEGO - Ganador
         //JUAGADOR GANADOR
-        if(VidasJ01 == 0)
-        {
-            Alerta(titulo: "GANADOR", texto: "Jugador 02")
-            Player2QA+=1
-            scoreJ2Txt.text = String(Player2QA)
+        if(basico==true){
             
-        }else if (VidasJ02 == 0)
-        {
-            Alerta(titulo: "GANADOR", texto: "Jugador 01")
-            Player1QA+=1
-            scoreJ1Txt.text = String(Player1QA)
+            if(VidasJ01 == 0 || cantPreJ2==5)
+            {
+                Alerta(titulo: "GANADOR", texto: "Jugador 02")
+                Player2QA+=1
+                scoreJ2Txt.text = String(Player2QA)
+                
+            }else if (VidasJ02 == 0 || cantPreJ1==5)
+            {
+                Alerta(titulo: "GANADOR", texto: "Jugador 01")
+                Player1QA+=1
+                scoreJ1Txt.text = String(Player1QA)
+                
+            }
+            
+            
+        }else if(inter==true){
+            if(VidasJ01 == 0 || cantPreJ2==7)
+            {
+                Alerta(titulo: "GANADOR", texto: "Jugador 02")
+                Player2QA+=1
+                scoreJ2Txt.text = String(Player2QA)
+                
+            }else if (VidasJ02 == 0 || cantPreJ1==7)
+            {
+                Alerta(titulo: "GANADOR", texto: "Jugador 01")
+                Player1QA+=1
+                scoreJ1Txt.text = String(Player1QA)
+                
+            }
+            
+        }else if(difi==true){
+            if(VidasJ01 == 0 || cantPreJ2==10)
+            {
+                Alerta(titulo: "GANADOR", texto: "Jugador 02")
+                Player2QA+=1
+                scoreJ2Txt.text = String(Player2QA)
+                
+            }else if (VidasJ02 == 0 || cantPreJ1==10)
+            {
+                Alerta(titulo: "GANADOR", texto: "Jugador 01")
+                Player1QA+=1
+                scoreJ1Txt.text = String(Player1QA)
+                
+            }
         }
+        
+        
+        
+        
         
         
                 
         
     }
     
+    
+    //MARK: Alertas
     @objc func Alerta(titulo: String, texto: String){
         
         let alertController = UIAlertController(title: titulo, message:

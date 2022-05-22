@@ -35,6 +35,7 @@ class RegistroViewController: UIViewController {
         
         persona.append(modeloPersona)
         
+        
         usuarioLogIndex = persona.endIndex-1
         
         personita = persona.last
